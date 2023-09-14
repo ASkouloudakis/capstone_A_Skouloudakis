@@ -1,0 +1,95 @@
+{% extends 'smartcity/layout.html' %}
+  
+
+{% block body %}
+
+{% include 'smartcity/sidebar_capstone.html' %}
+<div class="col-10 h-100 right" style="background-color: #f4f6f9;">
+  <div class="container-fluid">
+      <div class="text-center"> 
+        <h1>Πίνακας Πλήθους Επισκεπτών</h1>
+      </div>
+    
+      <div>
+        <!-- Ορισμός Πίνακα Πλήθους Επισκεπτών -->
+        <table class="table table-primary table-striped table-bordered table-hover">
+
+          <!-- Ορισμός Επικεφαλίδας Πίνακα Πλήθους Επισκεπτών -->
+          <!-- -->
+          <thead>
+            <form method="POST">
+              {% csrf_token %}
+            <tr>
+              <th class="table-15">
+                <select class="form-control form-select" id="filter_sensor" name="sensor" > <!-- onchange="updateTable1()" -->
+                  <option value="all"><span class="fw-bold">Sensor  (All)</span></option>
+                    {% for sensor in sensors %}
+                        <!-- <option value="{{ sensor }}">{{ sensor }}</option> -->
+                        <option value="{{ sensor }}" {% if sensor == selected_sensor %}selected{% endif %}>{{ sensor }}</option> 
+                    {% endfor %}
+                </select>
+              </th>
+              <th class="table-10">Period</th>
+              <th class="table-30">
+                <select class="form-control form-select" id="filter_location_name" name="location_name">
+                  <option value="all"><span  class="fw-bold">Location Name (All)</span></option>
+                  {% for location_name in location_names %}
+                      <!-- <option value="{{ location_name }}">{{ location_name }}</option> -->
+                      <option value="{{ location_name }}" {% if location_name == selected_location_name %}selected{% endif %}>{{ location_name }}</option> 
+                  {% endfor %}
+                </select>
+              </th>
+              <th class="table-15">Date</th>
+              <th class="table-15">Passengers</th>
+              <th class="table-15">
+                <select class="form-control form-select" id="filter_area" name="area">
+                  <option value="all"><span class="fw-bold">Area  (All)</span></option> <!-- onchange="updateTable()" -->
+                    {% for area in areas %}
+                      <!-- <option value="{{ area }}">{{ area }}</option> -->
+                      <option value="{{ area }}" {% if sensor == selected_area %}selected{% endif %}>{{ area }}</option>
+                    {% endfor %}
+                </select>
+              </th>
+            </tr>
+            <!-- <button type="submit">Submit</button> -->
+            </form>
+          </thead>
+
+          <!-- Ορισμός Κυρίου Μέρους Πίνακα Πλήθους Επισκεπτών -->
+          <tbody id="table-body">
+            {% for row in page_obj %}
+            <tr>
+              <td>{{ row.Sensor }}</td>
+              <td>{{ row.Period }}</td>
+              <td>{{ row.LocationName }}</td>
+              <td>{{ row.DateHour }}</td>
+              <td style="text-align: center;">{{ row.Passers }}</td>
+              <td>{{ row.Area }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="pagination">
+        <span class="step-links">
+            
+              {% if page_obj.has_previous %}
+                  <a href="?page=1" class="btn btn-primary">first</a>
+                  <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-primary">previous</a>
+              {% endif %}
+      
+            <!-- <span class="current-page"> -->
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            <!--  </span> -->
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn btn-primary">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-primary">last </a>
+            {% endif %}
+        </span>
+      </div>
+
+    </div>
+</div>  
+{% endblock %}

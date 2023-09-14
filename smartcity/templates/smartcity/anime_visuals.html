@@ -1,0 +1,33 @@
+<!-- <!DOCTYPE html>
+<html lang="en"> -->
+{% extends 'smartcity/layout.html' %}
+
+{% load plotly_dash %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% plotly_header %}
+        <title>Anime Visuals</title>
+        
+        
+        <style>
+            /* html, body, #container {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            } */
+        </style> 
+    </head>
+{% block body %}
+<!--     <body > -->
+    
+        <div id="container" style="margin-left: 20px;">
+            <h4>Animated Passers per Week over Area</h4>
+            <!-- Load the plotly_dash template tags -->
+            
+            {% plotly_direct name='anime_visuals' %}
+        </div>
+<!--     </body> -->
+    {% plotly_footer %}
+<!-- </html> -->
+{% endblock %}

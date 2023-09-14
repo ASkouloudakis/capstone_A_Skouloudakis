@@ -1,0 +1,15 @@
+{% extends 'smartcity/layout.html' %}
+{% load static %}
+
+    <!-- Bootstrap CSS
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+     -->
+    
+{% block body %}
+{% include 'smartcity/sidebar_capstone.html' %}
+    <!-- Main content -->
+    <div style="margin-top: 60px; margin-left: 10px; margin-right: 10px; width: 800px; height: 600px;">
+        <div class="fs-2 fw-light text-dark">Μέτρηση πλήθους ανά εβδομάδα</div>
+        <div id="vis" ></div>
+    </div>
+{% endblock %}

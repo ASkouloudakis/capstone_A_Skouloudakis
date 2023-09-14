@@ -1,0 +1,35 @@
+{% load static %}
+
+<header class="p-3 border-bottom bg-white  sticky-top">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a href="{% url 'smartcity:index' %}" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <img class="bi me-2" src="{% static 'smartcity/img/city-hall.png' %}" alt="logo"  width="40" height="32">
+        <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg> -->
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{% url 'smartcity:overview' %}" class="nav-link px-2 link-dark">Overview</a></li>
+        <li class="nav-item dropdown" id="horecadown">
+          <a class="nav-link dropdown-toggle link-dark" href="#" role="button" data-bs-toggle="dropdown">Τουρισμός</a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'smartcity:maps' %}" class="nav-link px-2 link-dark">HORECA</a></li>
+            <li><a href="{% url 'smartcity:maps1' %}" class="nav-link px-2 link-dark">Προσβάσιμο δίκτυο</a></li>
+          </ul>
+        </li> 
+        <li><a href="{% url 'smartcity:passengers_tbl' page=1 %}" class="nav-link px-2 link-dark">Πίνακες</a></li>
+        <li><a href="{% url 'smartcity:anime_visuals' %}" class="nav-link px-2 link-dark">Animations</a></li>
+        <li class="nav-item dropdown" id="crowdmeasure">
+          <a class="nav-link dropdown-toggle link-dark" href="#" role="button" data-bs-toggle="dropdown">Αίσθηση Πλήθους</a>
+          <ul class="dropdown-menu">
+            <li><a href="{% url 'smartcity:plot1' %}?year=2023" class="nav-link px-2 link-dark">Mέτρηση Πλήθους</a></li>
+            <li><a href="{% url 'smartcity:map_areas_passers' %}" class="nav-link px-2 link-dark">Μέτρηση Πλήθους / Περιοχή & Ημέρα</a></li>
+            <li><a href="{% url 'smartcity:plot2' %}" class="nav-link link-dark">Μέτρηση Πλήθους / Περιοχή & Εβδομάδα</a></li>
+          </ul>
+        </li> 
+      </ul>
+
+      
+    </div>
+  </div>
+</header>

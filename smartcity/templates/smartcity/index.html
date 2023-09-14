@@ -1,0 +1,23 @@
+{% extends 'smartcity/layout.html' %}
+
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="row">
+      {% include 'smartcity/sidebar_capstone.html' %}
+      <div class="col-10 h-100 right" style="background-color: #f4f6f9;">
+        {% if employee == '0' %}
+            <div id="employee-data">
+                {{ employee }}
+            </div>
+        {% else %}
+            <div>
+                <!-- Display other form data similarly -->
+            </div>
+        {% endif %}
+        
+        {% include 'smartcity/charts.html' %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

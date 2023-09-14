@@ -1,0 +1,14 @@
+{% extends 'smartcity/layout.html' %}
+{% load static %}
+
+
+{% block body %}
+
+{% include 'smartcity/sidebar_capstone.html' %}
+<div class="col-10 h-100 right" style="background-color: #f4f6f9; margin-top: 60px; margin-left: 10px; margin-right: 10px; ">        
+    <div class="fs-2 fw-light text-dark">Μέτρηση πλήθους ανά έτος και περιοχή</div>
+    <div >
+        {{ plot1 | safe }}
+    </div>
+</div>
+{% endblock %}

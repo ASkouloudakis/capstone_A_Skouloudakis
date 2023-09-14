@@ -1,0 +1,106 @@
+<div class="row m-3"  height="25%">
+  <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-info">
+        <div class="inner">
+          <h3>{{ areas | length }}</h3>
+
+          <p>Περιοχές</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-bag"></i>
+        </div>
+        
+  
+          <a href="#" class="small-box-footer" data-bs-toggle="modal" data-bs-target="#myModal">Περισσότερες Πληροφορίες <i class="fa fa-arrow-circle-right"></i></a>
+          
+        
+        
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+        
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title text-body">Περιοχές Πρόσβασης</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+        
+              <!-- Modal body -->
+              <div class="modal-body text-body">
+                <h2>Albert Cuypstraat</h2>
+                <div class="card">
+                  <div class="card-body">Στην πολυσύχναστη γειτονιά του De Pijp, ο Albert Cuypstraat είναι ένας διάσημος δρόμος γνωστός για την πολυσύχναστη υπαίθρια αγορά του, την αγορά Albert Cuyp. Προσφέρει μεγάλη ποικιλία προϊόντων, όπως φρέσκα προϊόντα, ρούχα, λουλούδια και τοπικές λιχουδιές.</div>
+                </div>
+              </div>
+        
+              <!-- Modal footer -->
+              <div class="modal-footer text-body">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+        <!-- <a href="#" class="small-box-footer">Περισσότερες Πληροφορίες <i class="fa fa-arrow-circle-right"></i></a> -->
+        
+      </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-success">
+          <div class="inner">
+              <h3>53<sup style="font-size: 20px">%</sup></h3>
+
+              <p>Bounce Rate</p>
+          </div>
+          <div class="icon">
+          <i class="ion ion-stats-bars"></i>
+          </div>
+          <a href="#" class="small-box-footer">Περισσότερες Πληροφορίες <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-warning">
+        <div class="inner">
+          <h3>{{ sensors | length }}</h3>
+
+          <p>Αισθητήρες</p>
+        </div>
+        <div class="icon">
+          <i class="ion ion-person-add"></i>
+        </div>
+        <a href="#" class="small-box-footer">Περισσότερες Πληροφορίες <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+  </div>
+
+  <div class="col-lg-3 col-6">
+      <!-- small box -->
+      <div class="small-box bg-danger">
+          <div class="inner">
+          <h3>{{ df_length }}</h3>
+
+          <p>Μετρήσεις</p>
+          </div>
+          <div class="icon">
+          <i class="ion ion-pie-graph"></i>
+          </div>
+          <a href="#" class="small-box-footer">Περισσότερες Πληροφορίες <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
+  </div>
+</div>
+
+<div class="row m-3" >
+  <div class="col-6" id="divBarChart" data-value="{{ dataset }}" >
+      <canvas id="barChart" style="display: inline-block; height: 380px; width: 586px;"></canvas>
+  </div>
+  <div class="col-6">
+      <canvas id="bubbleChart" style="display: inline-block; height: 370px;  width: 586px;"></canvas>
+  </div>
+</div>
+
+</main>
